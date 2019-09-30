@@ -81,14 +81,14 @@
 
 <meta name="description" content="Fast.ai Lesson 1 图像分类 上篇大家好，我叫南林笑笑生，因为在学习fast.ai这个深度学习框架的过程中觉得很好玩，希望能和更多志同道合的朋友一起讨论，但发现中文网上的资料不多，因此我把我学习的笔记在这里分享给大家。 简单介绍一下，fast.ai是一个基于PyTorch（如果你看到这里，想必你已经听说过天下第二的PyTorch了吧）的高级封装，类似于Keras和Tensorflow">
 <meta property="og:type" content="article">
-<meta property="og:title" content="lesson 1 fast.ai 图像分类">
-<meta property="og:url" content="http://yoursite.com/2019/09/30/lesson-1-fast-ai-图像分类-上篇/index.html">
+<meta property="og:title" content="lesson 1 fast.ai 图像分类 上篇">
+<meta property="og:url" content="http://yoursite.com/2019/09/30/lesson-1-fast-ai-图像分类/index.html">
 <meta property="og:site_name" content="林晗的AI笔记">
 <meta property="og:description" content="Fast.ai Lesson 1 图像分类 上篇大家好，我叫南林笑笑生，因为在学习fast.ai这个深度学习框架的过程中觉得很好玩，希望能和更多志同道合的朋友一起讨论，但发现中文网上的资料不多，因此我把我学习的笔记在这里分享给大家。 简单介绍一下，fast.ai是一个基于PyTorch（如果你看到这里，想必你已经听说过天下第二的PyTorch了吧）的高级封装，类似于Keras和Tensorflow">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-30T12:25:56.610Z">
+<meta property="og:updated_time" content="2019-09-30T12:32:54.935Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="lesson 1 fast.ai 图像分类">
+<meta name="twitter:title" content="lesson 1 fast.ai 图像分类 上篇">
 <meta name="twitter:description" content="Fast.ai Lesson 1 图像分类 上篇大家好，我叫南林笑笑生，因为在学习fast.ai这个深度学习框架的过程中觉得很好玩，希望能和更多志同道合的朋友一起讨论，但发现中文网上的资料不多，因此我把我学习的笔记在这里分享给大家。 简单介绍一下，fast.ai是一个基于PyTorch（如果你看到这里，想必你已经听说过天下第二的PyTorch了吧）的高级封装，类似于Keras和Tensorflow">
 
 
@@ -119,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/09/30/lesson-1-fast-ai-图像分类-上篇/">
+  <link rel="canonical" href="http://yoursite.com/2019/09/30/lesson-1-fast-ai-图像分类/">
 
 
 
 
 
-  <title>lesson 1 fast.ai 图像分类 | 林晗的AI笔记</title>
+  <title>lesson 1 fast.ai 图像分类 上篇 | 林晗的AI笔记</title>
   
 
 
@@ -242,7 +242,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/30/lesson-1-fast-ai-图像分类-上篇/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/30/lesson-1-fast-ai-图像分类/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="南林笑笑生">
@@ -259,7 +259,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">lesson 1 fast.ai 图像分类</h1>
+          <h1 class="post-title" itemprop="name headline">lesson 1 fast.ai 图像分类 上篇</h1>
         
 
         <div class="post-meta">
@@ -309,7 +309,7 @@
       
 
       
-        <h1 id="Fast-ai-Lesson-1-图像分类-上篇"><a href="#Fast-ai-Lesson-1-图像分类-上篇" class="headerlink" title="Fast.ai Lesson 1 图像分类 上篇"></a><code>Fast.ai</code> Lesson 1 图像分类 上篇</h1><p>大家好，我叫南林笑笑生，因为在学习fast.ai这个深度学习框架的过程中觉得很好玩，希望能和更多志同道合的朋友一起讨论，但发现中文网上的资料不多，因此我把我学习的笔记在这里分享给大家。</p>
+        <h1 id="Fast-ai-Lesson-1-图像分类-上篇"><a href="#Fast-ai-Lesson-1-图像分类-上篇" class="headerlink" title="Fast.ai Lesson 1 图像分类 上篇"></a>Fast.ai Lesson 1 图像分类 上篇</h1><p>大家好，我叫南林笑笑生，因为在学习fast.ai这个深度学习框架的过程中觉得很好玩，希望能和更多志同道合的朋友一起讨论，但发现中文网上的资料不多，因此我把我学习的笔记在这里分享给大家。</p>
 <p>简单介绍一下，fast.ai是一个基于PyTorch（如果你看到这里，想必你已经听说过天下第二的PyTorch了吧）的高级封装，类似于Keras和Tensorflow的关系，但远比Keras要方便和易上手的多的框架。</p>
 <ul>
 <li>当然，后两者的关系要紧密得多，tf.keras甚至可以和keras中的绝大多数api通用了。</li>
@@ -381,7 +381,7 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data.show_batch(rows=<span class="number">3</span>, figsize=(<span class="number">7</span>,<span class="number">6</span>))</span><br></pre></td></tr></table></figure>
 
 <p>```Python<br>print(data.classes)<br>len(data.classes),data.c<br>‘’’<br>输出：<br>[‘Abyssinian’, ‘Bengal’, ‘Birman’, ‘Bombay’, ‘British_Shorthair’, ‘Egyptian_Mau’, ‘Maine_Coon’, ‘Persian’, ‘Ragdoll’, ‘Russian_Blue’, ‘Siamese’, ‘Sphynx’, ‘american_bulldog’, ‘american_pit_bull_terrier’, ‘basset_hound’, ‘beagle’, ‘boxer’, ‘chihuahua’, ‘english_cocker_spaniel’, ‘english_setter’, ‘german_shorthaired’, ‘great_pyrenees’, ‘havanese’, ‘japanese_chin’, ‘keeshond’, ‘leonberger’, ‘miniature_pinscher’, ‘newfoundland’, ‘pomeranian’, ‘pug’, ‘saint_bernard’, ‘samoyed’, ‘scottish_terrier’, ‘shiba_inu’, ‘staffordshire_bull_terrier’, ‘wheaten_terrier’, ‘yorkshire_terrier’]<br>(37， 37)<br>‘’’</p>
-<p>好了，我们可以开始训练了。限于篇幅，我把接下来的部分放在下篇。</p>
+<p>好了，我们可以开始训练了。限于篇幅，我把接下来的部分放在[Fast.ai Lesson 1 图像分类 下篇]。</p>
 
       
     </div>
@@ -406,8 +406,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/09/30/lesson-1-fast-ai-图像分类/" rel="next" title="lesson 1 fast.ai 图像分类 上篇">
-                <i class="fa fa-chevron-left"></i> lesson 1 fast.ai 图像分类 上篇
+              <a href="/2019/09/30/article-title/" rel="next" title="article title">
+                <i class="fa fa-chevron-left"></i> article title
               </a>
             
           </div>
@@ -416,8 +416,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/09/30/Lesson-1-fast-ai-图像分类-下篇/" rel="prev" title="Lesson 1 fast ai 图像分类 下篇">
-                Lesson 1 fast ai 图像分类 下篇 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/09/30/lesson-1-fast-ai-图像分类-上篇/" rel="prev" title="lesson 1 fast.ai 图像分类">
+                lesson 1 fast.ai 图像分类 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
