@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="林晗的AI笔记">
 <meta property="og:description" content="Fast.ai Lesson 1 图像分类 上篇大家好，我叫南林笑笑生，因为在学习fast.ai这个深度学习框架的过程中觉得很好玩，希望能和更多志同道合的朋友一起讨论，但发现中文网上的资料不多，因此我把我学习的笔记在这里分享给大家。 简单介绍一下，fast.ai是一个基于PyTorch（如果你看到这里，想必你已经听说过天下第二的PyTorch了吧）的高级封装，类似于Keras和Tensorflow">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-30T12:25:56.610Z">
+<meta property="og:updated_time" content="2019-11-02T12:11:39.705Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="lesson 1 fast.ai 图像分类">
 <meta name="twitter:description" content="Fast.ai Lesson 1 图像分类 上篇大家好，我叫南林笑笑生，因为在学习fast.ai这个深度学习框架的过程中觉得很好玩，希望能和更多志同道合的朋友一起讨论，但发现中文网上的资料不多，因此我把我学习的笔记在这里分享给大家。 简单介绍一下，fast.ai是一个基于PyTorch（如果你看到这里，想必你已经听说过天下第二的PyTorch了吧）的高级封装，类似于Keras和Tensorflow">
@@ -380,7 +380,8 @@
 <p>预览一下三行三列的图片</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data.show_batch(rows=<span class="number">3</span>, figsize=(<span class="number">7</span>,<span class="number">6</span>))</span><br></pre></td></tr></table></figure>
 
-<p>```Python<br>print(data.classes)<br>len(data.classes),data.c<br>‘’’<br>输出：<br>[‘Abyssinian’, ‘Bengal’, ‘Birman’, ‘Bombay’, ‘British_Shorthair’, ‘Egyptian_Mau’, ‘Maine_Coon’, ‘Persian’, ‘Ragdoll’, ‘Russian_Blue’, ‘Siamese’, ‘Sphynx’, ‘american_bulldog’, ‘american_pit_bull_terrier’, ‘basset_hound’, ‘beagle’, ‘boxer’, ‘chihuahua’, ‘english_cocker_spaniel’, ‘english_setter’, ‘german_shorthaired’, ‘great_pyrenees’, ‘havanese’, ‘japanese_chin’, ‘keeshond’, ‘leonberger’, ‘miniature_pinscher’, ‘newfoundland’, ‘pomeranian’, ‘pug’, ‘saint_bernard’, ‘samoyed’, ‘scottish_terrier’, ‘shiba_inu’, ‘staffordshire_bull_terrier’, ‘wheaten_terrier’, ‘yorkshire_terrier’]<br>(37， 37)<br>‘’’</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">print(data.classes)</span><br><span class="line">len(data.classes),data.c</span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">输出：</span></span><br><span class="line"><span class="string">['Abyssinian', 'Bengal', 'Birman', 'Bombay', 'British_Shorthair', 'Egyptian_Mau', 'Maine_Coon', 'Persian', 'Ragdoll', 'Russian_Blue', 'Siamese', 'Sphynx', 'american_bulldog', 'american_pit_bull_terrier', 'basset_hound', 'beagle', 'boxer', 'chihuahua', 'english_cocker_spaniel', 'english_setter', 'german_shorthaired', 'great_pyrenees', 'havanese', 'japanese_chin', 'keeshond', 'leonberger', 'miniature_pinscher', 'newfoundland', 'pomeranian', 'pug', 'saint_bernard', 'samoyed', 'scottish_terrier', 'shiba_inu', 'staffordshire_bull_terrier', 'wheaten_terrier', 'yorkshire_terrier']</span></span><br><span class="line"><span class="string">(37， 37)</span></span><br><span class="line"><span class="string">'''</span></span><br></pre></td></tr></table></figure>
+
 <p>好了，我们可以开始训练了。限于篇幅，我把接下来的部分放在下篇。</p>
 
       
@@ -493,7 +494,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
