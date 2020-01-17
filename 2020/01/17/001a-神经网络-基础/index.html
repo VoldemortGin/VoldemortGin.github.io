@@ -79,16 +79,19 @@
 
 
 
-<meta name="description" content="无论如何，人生是美丽的。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="林晗的AI笔记">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="神经网络初探声明：本教程使用PyTorch&amp;gt;=1.3和Fastai v1以上版本。原教程来自Jeremy Howard，因其为全英文，同时笔者在自学过程中记了一些笔记，本着分离的精神遂将笔记分享。须知原作者为Jeremy Howard。 MNIST数据集设置我们使用黑白手写数字数据集MNIST，其包含70000张从0到9的手写数字图片，图像尺寸为28*28像素。 12345678910111">
+<meta property="og:type" content="article">
+<meta property="og:title" content="001a_神经网络_基础">
+<meta property="og:url" content="http://yoursite.com/2020/01/17/001a-神经网络-基础/index.html">
 <meta property="og:site_name" content="林晗的AI笔记">
-<meta property="og:description" content="无论如何，人生是美丽的。">
+<meta property="og:description" content="神经网络初探声明：本教程使用PyTorch&amp;gt;=1.3和Fastai v1以上版本。原教程来自Jeremy Howard，因其为全英文，同时笔者在自学过程中记了一些笔记，本着分离的精神遂将笔记分享。须知原作者为Jeremy Howard。 MNIST数据集设置我们使用黑白手写数字数据集MNIST，其包含70000张从0到9的手写数字图片，图像尺寸为28*28像素。 12345678910111">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://linha-image.oss-ap-southeast-2.aliyuncs.com/mnist_sample.png">
+<meta property="og:updated_time" content="2020-01-17T12:51:02.164Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="林晗的AI笔记">
-<meta name="twitter:description" content="无论如何，人生是美丽的。">
+<meta name="twitter:title" content="001a_神经网络_基础">
+<meta name="twitter:description" content="神经网络初探声明：本教程使用PyTorch&amp;gt;=1.3和Fastai v1以上版本。原教程来自Jeremy Howard，因其为全英文，同时笔者在自学过程中记了一些笔记，本着分离的精神遂将笔记分享。须知原作者为Jeremy Howard。 MNIST数据集设置我们使用黑白手写数字数据集MNIST，其包含70000张从0到9的手写数字图片，图像尺寸为28*28像素。 12345678910111">
+<meta name="twitter:image" content="https://linha-image.oss-ap-southeast-2.aliyuncs.com/mnist_sample.png">
 
 
 
@@ -118,13 +121,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/">
+  <link rel="canonical" href="http://yoursite.com/2020/01/17/001a-神经网络-基础/">
 
 
 
 
 
-  <title>林晗的AI笔记</title>
+  <title>001a_神经网络_基础 | 林晗的AI笔记</title>
   
 
 
@@ -153,8 +156,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -227,9 +229,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -259,9 +261,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/01/17/001a-神经网络-基础/" itemprop="url">001a_神经网络_基础</a></h1>
+          <h1 class="post-title" itemprop="name headline">001a_神经网络_基础</h1>
         
 
         <div class="post-meta">
@@ -311,9 +311,7 @@
       
 
       
-        
-          
-            <h1 id="神经网络初探"><a href="#神经网络初探" class="headerlink" title="神经网络初探"></a>神经网络初探</h1><p>声明：本教程使用PyTorch&gt;=1.3和Fastai v1以上版本。原教程来自Jeremy Howard，因其为全英文，同时笔者在自学过程中记了一些笔记，本着分离的精神遂将笔记分享。须知原作者为Jeremy Howard。</p>
+        <h1 id="神经网络初探"><a href="#神经网络初探" class="headerlink" title="神经网络初探"></a>神经网络初探</h1><p>声明：本教程使用PyTorch&gt;=1.3和Fastai v1以上版本。原教程来自Jeremy Howard，因其为全英文，同时笔者在自学过程中记了一些笔记，本着分离的精神遂将笔记分享。须知原作者为Jeremy Howard。</p>
 <h2 id="MNIST数据集设置"><a href="#MNIST数据集设置" class="headerlink" title="MNIST数据集设置"></a>MNIST数据集设置</h2><p>我们使用黑白手写数字数据集MNIST，其包含70000张从0到9的手写数字图片，图像尺寸为28*28像素。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pathlib <span class="keyword">import</span> Path</span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line">DATA_PATH = Path(<span class="string">'data'</span>)</span><br><span class="line">PATH = DATA_PATH/<span class="string">'mnist'</span></span><br><span class="line"></span><br><span class="line">PATH.mkdir(parents=<span class="literal">True</span>, exist_ok=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line">URL=<span class="string">'http://deeplearning.net/data/mnist/'</span></span><br><span class="line">FILENAME=<span class="string">'mnist.pkl.gz'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> <span class="keyword">not</span> (PATH/FILENAME).exists():</span><br><span class="line">    content = requests.get(URL+FILENAME).content</span><br><span class="line">    (PATH/FILENAME).open(<span class="string">'wb'</span>).write(content)</span><br></pre></td></tr></table></figure>
 
@@ -478,8 +476,6 @@ PyTorch的TensorDataset是一个包装张量的数据集。通过定义长度和
 
 <p>让我们更新预处理函数preprocess()，将batches移动到GPU:</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">preprocess</span><span class="params">(x,y)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> x.view(<span class="number">-1</span>,<span class="number">1</span>,<span class="number">28</span>,<span class="number">28</span>).to(dev),y.to(dev)</span><br><span class="line"></span><br><span class="line">train_dl,valid_dl = get_data(train_ds, valid_ds, bs)</span><br><span class="line">train_dl = WrappedDataLoader(train_dl, preprocess)</span><br><span class="line">valid_dl = WrappedDataLoader(valid_dl, preprocess)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 最后，我们可以将模型移动到GPU。</span></span><br><span class="line">model.to(dev)</span><br><span class="line">opt = optim.SGD(model.parameters(), lr=lr, momentum=<span class="number">0.9</span>)</span><br><span class="line">fit(epochs, model, loss_func, opt, train_dl, valid_dl)</span><br></pre></td></tr></table></figure>
-          
-        
       
     </div>
     
@@ -496,152 +492,28 @@ PyTorch的TensorDataset是一个包装张量的数据集。通过定义长度和
       
 
       
-
-      
-
       
       
-        <div class="post-eof"></div>
+
       
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/04/Python的魔法方法-call/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="南林笑笑生">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="林晗的AI笔记">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/11/04/Python的魔法方法-call/" itemprop="url">Python的魔法方法__call__()和__init__()拾遗</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-11-04T09:57:48+08:00">
-                2019-11-04
-              </time>
+              <a href="/2019/11/04/Python的魔法方法-call/" rel="next" title="Python的魔法方法__call__()和__init__()拾遗">
+                <i class="fa fa-chevron-left"></i> Python的魔法方法__call__()和__init__()拾遗
+              </a>
             
+          </div>
 
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
             
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-            <h2 id="call"><a href="#call" class="headerlink" title="__call__()"></a><code>__call__()</code></h2><p>我们常听到：Python中一切都是对象。</p>
-<p>这句话对Python中的函数也是同样适用的。事实上，函数在Python中是一级对象，即Python中的函数可以作为输入参数传递到其他的函数/方法中，并在其中被执行。</p>
-<p>同时，对象（实例化的类）可以被当做函数对待。也就是说，可以给对象传递参数，达到函数的效果。比如这样：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">this_is_call(arg1, arg2)</span><br></pre></td></tr></table></figure>
-
-<p>要把一个实例对象做为函数调用，需要在类中实现_<em>call_</em>()方法。也就是我们要在类中实现如下方法：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">__call__</span><span class="params">(self, *args)</span>:</span></span><br><span class="line">    <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
-
-<p>假设x是X类的一个实例。那么调用<code>x.__call__(1,2)</code>等同于调用<code>x(1,2)</code>。这个实例本身在这里相当于一个函数。</p>
-<p>看到这里你可能会有一点疑惑，这哥们儿有点眼熟儿啊，和<code>__init__()</code>有啥区别？</p>
-<p>没错，但后者是初始化实例时用的，具体区别如下：</p>
-<ol>
-<li><code>__init__()</code>的作用是初始化某个类的一个实例。</li>
-<li><code>__call__()</code>的作用是使实例能够像函数一样被调用，同时不影响实例本身的生命周期（<code>__call__()</code>不影响一个实例的构造和析构）。但是<code>__call__()</code>可以用来改变实例的内部成员的值。</li>
-</ol>
-<p>代码对比：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">X</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, a, b, range)</span>:</span></span><br><span class="line">        self.a = a</span><br><span class="line">        self.b = b</span><br><span class="line">        self.range = range</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__call__</span><span class="params">(self, a, b)</span>:</span></span><br><span class="line">        self.a = a</span><br><span class="line">        self.b = b</span><br><span class="line">        print(<span class="string">'__call__ with （&#123;&#125;, &#123;&#125;）'</span>.format(self.a, self.b))</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__del__</span><span class="params">(self, a, b, range)</span>:</span></span><br><span class="line">        <span class="keyword">del</span> self.a</span><br><span class="line">        <span class="keyword">del</span> self.b</span><br><span class="line">        <span class="keyword">del</span> self.range</span><br></pre></td></tr></table></figure>
-
-<p>调用结果：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>xInstance = X(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>)	<span class="comment"># 创建对象，用的__init__()</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>xInstance(<span class="number">1</span>,<span class="number">2</span>)		   <span class="comment"># 调用对象（这个对象已经是一个函数了），这时用的__call__()</span></span><br><span class="line">__call__ <span class="keyword">with</span> (<span class="number">1</span>, <span class="number">2</span>)</span><br></pre></td></tr></table></figure>
-
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -651,911 +523,11 @@ PyTorch的TensorDataset是一个包装张量的数据集。通过定义长度和
   </article>
 
 
-    
-      
 
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/02/opencv几种简单的转化/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="南林笑笑生">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="林晗的AI笔记">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/11/02/opencv几种简单的转化/" itemprop="url">opencv几种简单的转化</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-11-02T20:47:44+08:00">
-                2019-11-02
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="1-通道交换"><a href="#1-通道交换" class="headerlink" title="1. 通道交换"></a>1. 通道交换</h3><p>读取图像，然后将BGR通道（这是opencv默认打开图像的方式）替换成RGB  通道。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"></span><br><span class="line">img = cv2.imread(<span class="string">"../imori.jpg"</span>)</span><br><span class="line">b = img[:, :, <span class="number">0</span>].copy()</span><br><span class="line">g = img[:, :, <span class="number">1</span>].copy()</span><br><span class="line">r = img[:, :, <span class="number">2</span>].copy()</span><br><span class="line"></span><br><span class="line"><span class="comment"># BGR -&gt; RGB</span></span><br><span class="line">img[:, :, <span class="number">0</span>] = r</span><br><span class="line">img[:, :, <span class="number">1</span>] = g</span><br><span class="line">img[:, :, <span class="number">2</span>] = b</span><br><span class="line"></span><br><span class="line"><span class="comment"># save result</span></span><br><span class="line">cv2.imwrite(<span class="string">"answer_1.jpg"</span>, img)</span><br><span class="line">cv2.imshow(<span class="string">"result"</span>, img)</span><br><span class="line">cv2.waitKey(<span class="number">0</span>)</span><br><span class="line">cv2.destroyAllWindows()</span><br></pre></td></tr></table></figure>
-
-<table>
-<thead>
-<tr>
-<th align="center">输入</th>
-<th align="center">输出</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center"><img src="https://linha-image.oss-ap-southeast-2.aliyuncs.com/opencv/imori.jpg" alt="image"></td>
-<td align="center"><img src="https://linha-image.oss-ap-southeast-2.aliyuncs.com/opencv/answer_1.jpg" alt="image"></td>
-</tr>
-</tbody></table>
-<hr>
-
-<h3 id="2-灰度化（Grayscale）"><a href="#2-灰度化（Grayscale）" class="headerlink" title="2. 灰度化（Grayscale）"></a>2. 灰度化（Grayscale）</h3><p>灰度是一种图像亮度的表示方法，通过下式计算：</p>
-<p>Y = 0.2126 R + 0.7152 G + 0.0722 B</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">img = cv2.imread(<span class="string">"../imori.jpg"</span>).astype(np.float)</span><br><span class="line">b = img[:, :, <span class="number">0</span>]</span><br><span class="line">g = img[:, :, <span class="number">1</span>]</span><br><span class="line">r = img[:, :, <span class="number">2</span>]</span><br><span class="line"></span><br><span class="line">out = <span class="number">0.2126</span> * r + <span class="number">0.7152</span> * g + <span class="number">0.0722</span> * b</span><br><span class="line">out = out.astype(np.uint8)</span><br><span class="line"></span><br><span class="line">cv2.imwrite(<span class="string">"answer_2.jpg"</span>, out)</span><br><span class="line">cv2.imshow(<span class="string">"result"</span>, out)</span><br><span class="line">cv2.waitKey(<span class="number">0</span>)</span><br><span class="line">cv2.destroyAllWindows()</span><br></pre></td></tr></table></figure>
-
-<table>
-<thead>
-<tr>
-<th align="center">输入</th>
-<th align="center">输出</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center"><img src="https://linha-image.oss-ap-southeast-2.aliyuncs.com/opencv/imori.jpg" alt="image"></td>
-<td align="center"><img src="https://linha-image.oss-ap-southeast-2.aliyuncs.com/opencv/answer_2.jpg" alt="image"></td>
-</tr>
-</tbody></table>
-<hr>
-
-<p>先写到这里，后续看到有意思的再继续补充。</p>
-
-          
-        
+    <div class="post-spread">
       
     </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
   </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/02/opencv中的大津算法（最大类间差法-OTSU算法）/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="南林笑笑生">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="林晗的AI笔记">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/11/02/opencv中的大津算法（最大类间差法-OTSU算法）/" itemprop="url">opencv中的大津算法（最大类间差法/OTSU算法）</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-11-02T20:47:05+08:00">
-                2019-11-02
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="大津二值化算法（Otsu’s-Method）"><a href="#大津二值化算法（Otsu’s-Method）" class="headerlink" title="大津二值化算法（Otsu’s Method）"></a>大津二值化算法（Otsu’s Method）</h3><p>要解释大津二值化算法，首先要解释一下二值化算法。</p>
-<p>opencv通过cv2.imread(“图片路径”)读取图片后（假设是彩色BGR三通道的图片），每个通道的每个像素是从0到255的无符号整数，我们看到的颜色是通过三个通道对0到255的不同组合呈现出来的。二值化是首先把它们合并成一张灰度图，再设定一个阈值th，高于th的像素值设为255（即最白），低于th的则设为0（即最黑）。这是最简单的二值化，实现代码如下：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">img = cv2.imread(<span class="string">"../imori.jpg"</span>).astype(np.float)</span><br><span class="line">b = img[:, :, <span class="number">0</span>].copy()</span><br><span class="line">g = img[:, :, <span class="number">1</span>].copy()</span><br><span class="line">r = img[:, :, <span class="number">2</span>].copy()</span><br><span class="line"></span><br><span class="line">out = <span class="number">0.2126</span> * r + <span class="number">0.7152</span> * g + <span class="number">0.0722</span> * b</span><br><span class="line">out = out.astype(np.uint8)</span><br><span class="line"></span><br><span class="line">th = <span class="number">128</span></span><br><span class="line"></span><br><span class="line">out[out &lt; th] = <span class="number">0</span></span><br><span class="line">out[out &gt;= th] = <span class="number">255</span></span><br><span class="line"></span><br><span class="line">cv2.imwrite(<span class="string">"answer_3.jpg"</span>, out)</span><br><span class="line">cv2.imshow(<span class="string">"result"</span>, out)</span><br><span class="line">cv2.waitKey(<span class="number">0</span>)</span><br><span class="line">cv2.destroyAllWindows()</span><br></pre></td></tr></table></figure>
-
-<table>
-<thead>
-<tr>
-<th align="center">输入</th>
-<th align="center">输出</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center"><img src="https://linha-image.oss-ap-southeast-2.aliyuncs.com/opencv/imori.jpg" alt="image"></td>
-<td align="center"><img src="https://linha-image.oss-ap-southeast-2.aliyuncs.com/opencv/answer_3.jpg" alt="image"></td>
-</tr>
-</tbody></table>
-<p>但这存在一个问题，如何设置这个阈值th呢？上面的代码是直接取0到255的中值128（其实也不是中值，中值是127.5，好吧，我钻牛角尖了），效果也还不错，这是因为刚好这张原图的灰度图的像素分布在128的两边，但如果是一张很灰暗的或者很亮的图呢？那可能得到的是一张全黑或全白的结果了。</p>
-<p>一个解决办法是遍历0到255所有数值，把它们都作为阈值th，看在哪一个th下二值化效果最好。这里“效果最好”指的是两部分的类间方差最大——类间方差越大，就说明两部分之间的灰度差距越大。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">img = cv2.imread(<span class="string">"../imori.jpg"</span>).astype(np.float)</span><br><span class="line">H, W, C = img.shape</span><br><span class="line"></span><br><span class="line">b = img[:, :, <span class="number">0</span>].copy()</span><br><span class="line">g = img[:, :, <span class="number">1</span>].copy()</span><br><span class="line">r = img[:, :, <span class="number">2</span>].copy()</span><br><span class="line"></span><br><span class="line">out = <span class="number">0.2126</span> * r + <span class="number">0.7152</span> * g + <span class="number">0.0722</span> * b</span><br><span class="line">out = out.astype(np.uint8)</span><br><span class="line"></span><br><span class="line">max_sigma = <span class="number">0</span></span><br><span class="line">max_t = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> _t <span class="keyword">in</span> range(<span class="number">1</span>, <span class="number">255</span>):</span><br><span class="line">    v0 = out[np.where(out &lt; _t)]</span><br><span class="line">    m0 = np.mean(v0) <span class="keyword">if</span> len(v0) &gt; <span class="number">0</span> <span class="keyword">else</span> <span class="number">0.</span></span><br><span class="line">    w0 = len(v0) / (H * W)</span><br><span class="line">    v1 = out[np.where(out &gt;= _t)]</span><br><span class="line">    m1 = np.mean(v1) <span class="keyword">if</span> len(v1) &gt; <span class="number">0</span> <span class="keyword">else</span> <span class="number">0.</span></span><br><span class="line">    w1 = len(v1) / (H * W)</span><br><span class="line">    sigma = w0 * w1 * ((m0 - m1)**<span class="number">2</span>)</span><br><span class="line">    <span class="keyword">if</span> sigma &gt; max_sigma:</span><br><span class="line">        max_sigma = sigma</span><br><span class="line">        max_t = _t</span><br><span class="line"></span><br><span class="line"><span class="comment"># 下面对其进行二值化</span></span><br><span class="line">print(<span class="string">"二值化阈值："</span>, max_t)</span><br><span class="line">th = max_t</span><br><span class="line">out[out &lt; th] = <span class="number">0</span></span><br><span class="line">out[out &gt;= th] = <span class="number">255</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 保存结果</span></span><br><span class="line">cv2.imwrite(<span class="string">"answer_4.jpg"</span>, out)</span><br><span class="line">cv2.imshow(<span class="string">"result"</span>, out)</span><br><span class="line">cv2.waitKey(<span class="number">0</span>)</span><br><span class="line">cv2.destroyAllWindows()</span><br></pre></td></tr></table></figure>
-
-<table>
-<thead>
-<tr>
-<th align="center">输入</th>
-<th align="center">输出</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center"><img src="https://linha-image.oss-ap-southeast-2.aliyuncs.com/opencv/imori.jpg" alt="image"></td>
-<td align="center"><img src="https://linha-image.oss-ap-southeast-2.aliyuncs.com/opencv/answer_4.jpg" alt="image"></td>
-</tr>
-</tbody></table>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/02/numpy-where-函数用法：（np-where-）/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="南林笑笑生">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="林晗的AI笔记">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/11/02/numpy-where-函数用法：（np-where-）/" itemprop="url">numpy.where()函数用法：（np.where()）</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-11-02T19:37:07+08:00">
-                2019-11-02
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>首先看一下源码：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">where</span><span class="params">(condition, x=None, y=None)</span>:</span></span><br><span class="line">    <span class="string">'''忽略源码'''</span></span><br></pre></td></tr></table></figure>
-
-<p>所以实际上既可以只传第一个参数（后面两个默认为None），也可以传两个或三个参数。</p>
-<h3 id="用法1："><a href="#用法1：" class="headerlink" title="用法1："></a>用法1：</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">np.where(condition, x, y)</span><br></pre></td></tr></table></figure>
-
-<p>这里有一点像Excel中的if()函数。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>aa = np.arange(<span class="number">10</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>np.where(aa,<span class="number">1</span>,<span class="number">-1</span>)</span><br><span class="line">array([<span class="number">-1</span>,  <span class="number">1</span>,  <span class="number">1</span>,  <span class="number">1</span>,  <span class="number">1</span>,  <span class="number">1</span>,  <span class="number">1</span>,  <span class="number">1</span>,  <span class="number">1</span>,  <span class="number">1</span>])  <span class="comment"># 0为False，所以第一个输出-1</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>np.where(aa &gt; <span class="number">5</span>,<span class="number">1</span>,<span class="number">-1</span>)</span><br><span class="line">array([<span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>,  <span class="number">1</span>,  <span class="number">1</span>,  <span class="number">1</span>,  <span class="number">1</span>])</span><br></pre></td></tr></table></figure>
-
-<h3 id="用法2："><a href="#用法2：" class="headerlink" title="用法2："></a>用法2：</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">np.where(condition)</span><br></pre></td></tr></table></figure>
-
-<p>只有条件 (condition)，没有x和y，则输出满足条件 (即非0) 元素的坐标（注意是坐标，不是值）。</p>
-<p>坐标以tuple的形式给出，通常原数组有多少维，输出的tuple中就包含几个数组，分别对应符合条件元素的各维坐标。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = np.array([<span class="number">2</span>,<span class="number">4</span>,<span class="number">6</span>,<span class="number">8</span>,<span class="number">10</span>])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>np.where(a &gt; <span class="number">5</span>)             <span class="comment"># 返回索引</span></span><br><span class="line">(array([<span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>]),)             <span class="comment"># 这是6, 8, 10的坐标</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a[np.where(a &gt; <span class="number">5</span>)]              <span class="comment"># 等价于 a[a&gt;5]</span></span><br><span class="line">array([ <span class="number">6</span>,  <span class="number">8</span>, <span class="number">10</span>])</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>np.where([[<span class="number">0</span>, <span class="number">1</span>], [<span class="number">1</span>, <span class="number">0</span>]])</span><br><span class="line">(array([<span class="number">0</span>, <span class="number">1</span>]), array([<span class="number">1</span>, <span class="number">0</span>]))</span><br><span class="line"><span class="string">''' 上面这个有点复杂,[[0,1],[1,0]]的真值为两个1，</span></span><br><span class="line"><span class="string">各自的第一维坐标为[0,1]，第二维坐标为[1,0] 。</span></span><br><span class="line"><span class="string">'''</span></span><br></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/14/Anaconda 执行 conda create -n无法定位程序输入点 openssl_sk_new_reserve/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="南林笑笑生">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="林晗的AI笔记">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/10/14/Anaconda 执行 conda create -n无法定位程序输入点 openssl_sk_new_reserve/" itemprop="url">Anaconda 执行 conda create -n无法定位程序输入点 openssl_sk_new_reserve</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-14T17:48:59+08:00">
-                2019-10-14
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>之前在本地电脑上配置cuda的时候可能把Anaconda的环境搞乱了，所以今天想要创建一个独立的python3.6环境的时候报了这个弹窗的错（当时没保存截图），内容为：conda create -n无法定位程序输入点openssl_sk_new_reserve</p>
-<p>网上找了下资料，发现是.dll的锅。</p>
-<p>打开Anaconda安装文件夹（根据个人的路径查找，你的可能和我的不一样）：</p>
-<p><img src="https://linha-image.oss-ap-southeast-2.aliyuncs.com/ca980b416931340090a9e68d244dcdf.png" alt="image"></p>
-<p><img src="https://linha-image.oss-ap-southeast-2.aliyuncs.com/cd87b6c126e0bfc3f67f6a4e80c3a4b.png" alt="image"></p>
-<p>这两个文件的修改日期必须是一致的，如果不一致，把DLLs文件夹中的替换掉bin文件夹中的那个。（上图是替换好后的）</p>
-<p>再次尝试，已经OK了。</p>
-<p><img src="https://linha-image.oss-ap-southeast-2.aliyuncs.com/3806a7c1de1c5d98d6665102078c956.png" alt="image"></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/01/Django2-学习笔记第一篇/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="南林笑笑生">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="林晗的AI笔记">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/10/01/Django2-学习笔记第一篇/" itemprop="url">Django2.2 学习笔记第一篇</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-01T12:29:29+08:00">
-                2019-10-01
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="Django是什么？"><a href="#Django是什么？" class="headerlink" title="Django是什么？"></a>Django是什么？</h3><p>Django是是用 Python 写的一个自由和开放源码 web 应用程序框架。 web框架是一套组件，能帮助你更快、更容易地开发web站点。</p>
-<p>编程一个重要原则就是不要重复造轮子。当你开始构建一个web站点时，你总需要一些相似的组件：处理用户认证（注册、登录、登出）的方式、一个管理站点的面板、表单、上传文件的方式，等等。</p>
-<p>幸运的是，其他人很早就注意到web开发人员会面临一些共同的问题。所以他们联手创建了 web 框架（Django 是其中一个）来让你使用。</p>
-<hr>
-
-<h3 id="你为什么需要一个框架？"><a href="#你为什么需要一个框架？" class="headerlink" title="你为什么需要一个框架？"></a>你为什么需要一个框架？</h3><p>要理解什么是Django， 我们需要更仔细的看一下服务器。 服务器需要知道的第一件事就是你希望它为你的网页做什么。</p>
-<p>想象一个用来监控接收邮件（请求）的邮箱（端口）。 这就是网站服务器做的事情。 网站服务器读这封信，然后将响应发送给网页。 </p>
-<p>但是当你想发送一些东西的时候，你必须要有一些内容。 而Django就是可以帮助您创建内容的工具。</p>
-<hr>
-
-<h3 id="当有人向您的服务器请求一个网站，会发生什么呢？"><a href="#当有人向您的服务器请求一个网站，会发生什么呢？" class="headerlink" title="当有人向您的服务器请求一个网站，会发生什么呢？"></a>当有人向您的服务器请求一个网站，会发生什么呢？</h3><p>当一个请求到达网站服务器，它会被传递到Django，试图找到实际上什么是被请求的。 它首先会拿到一个网页的地址，然后试图去弄清该做什么。 这个部分是由Django的urlresolver（url解析器。注意一个网站的地址被叫做URL，统一资源定位器，所以url解析器是有意义的）。 它并不十分聪明，他接受一个模式列表，然后试图去匹配 URL。 Django从顶到底检查模式，如果有匹配上的，那么Django会将请求传递给相关的函数（这被称作视图）。).</p>
-<p>想象一个邮递员拿着一封信。 她沿着街区走下去，检查每一个房号与信件地址是否对应。 如果匹配上了，她就把信投在那里。 这也是url解析器的工作方式！</p>
-<p>在视图函数里做了很多有趣的事情：我们能在数据库中寻找到一些信息。 如果用户要求修改数据呢？ 就像一封信里说，“请修改我的工作描述”，视图 将检查是否你允许它这么干，然后更新工作描述并发回一个消息：“做完了”。 然后视图生成响应，并且Django能够发送给用户的web浏览器。</p>
-<p>当然，上述的描述是有一些简化的，但是你不需要去知道所有的技术的东西。有一个大概的想法就够了。</p>
-<p>所以不要太过深入细节，我们会简单用Django创建一些东西，然后我们会在学习的路上学到所有重要的部分！</p>
-<hr>
-
-<h3 id="编写你的第一个-Django-应用，第-1-部分"><a href="#编写你的第一个-Django-应用，第-1-部分" class="headerlink" title="编写你的第一个 Django 应用，第 1 部分"></a>编写你的第一个 Django 应用，第 1 部分</h3><p>首先查看一下Django版本号，在命令行输入：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ python -m django --version</span><br></pre></td></tr></table></figure>
-
-<h4 id="创建项目"><a href="#创建项目" class="headerlink" title="创建项目"></a>创建项目</h4><p>在命令行敲入如下代码：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ django-admin startproject mysite</span><br></pre></td></tr></table></figure>
-
-<p>看一下startproject创建了哪些东西：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">mysite/</span><br><span class="line">    manage.py</span><br><span class="line">    mysite/</span><br><span class="line">        __init__.py</span><br><span class="line">        settings.py</span><br><span class="line">        urls.py</span><br><span class="line">        wsgi.py</span><br></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/30/lesson-1-fast-ai-图像分类-上篇/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="南林笑笑生">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="林晗的AI笔记">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/09/30/lesson-1-fast-ai-图像分类-上篇/" itemprop="url">lesson 1 fast.ai 图像分类</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-30T11:25:02+08:00">
-                2019-09-30
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="Fast-ai-Lesson-1-图像分类-上篇"><a href="#Fast-ai-Lesson-1-图像分类-上篇" class="headerlink" title="Fast.ai Lesson 1 图像分类 上篇"></a><code>Fast.ai</code> Lesson 1 图像分类 上篇</h1><p>大家好，我叫南林笑笑生，因为在学习fast.ai这个深度学习框架的过程中觉得很好玩，希望能和更多志同道合的朋友一起讨论，但发现中文网上的资料不多，因此我把我学习的笔记在这里分享给大家。</p>
-<p>简单介绍一下，fast.ai是一个基于PyTorch（如果你看到这里，想必你已经听说过天下第二的PyTorch了吧）的高级封装，类似于Keras和Tensorflow的关系，但远比Keras要方便和易上手的多的框架。</p>
-<ul>
-<li>当然，后两者的关系要紧密得多，tf.keras甚至可以和keras中的绝大多数api通用了。</li>
-</ul>
-<p>易上手往往意味着难于不灵活和不便于部署，不过对fast.ai不需要太担心，需要灵活调整的部分完全可以交给PyTorch来做；部署上，训练好的模型可以直接用torch.onnx来把模型转换成各种你想要的格式。</p>
-<p>除此外还有两个准备工作建议大家先完成（预计花费20分钟）。</p>
-<ol>
-<li><p>使用谷歌搜索，不要再用百度了。不需要翻墙，只需要为你的Chrome浏览器安装一个谷歌访问助手即可。</p>
-<p> 具体操作请百度，哦不，谷歌一下，这里就不炒冷饭了。</p>
-</li>
-<li><p>注册一个kaggle账号，这有两个目的，一个是尽可能地参加kaggle比赛，按照Jeremy的观点，如果在一个kaggle竞赛中你进入了前10%的名次，那么就真的弄明白你在做什么了。另一个目的是使用kaggle kernel，这是一个免费的GPU计算资源，使用Nvidia K80显卡，而且它下载许多国外的开源数据集速度非常快，这一点即使在国内自己搭梯子也没办法做到。</p>
-<p> 注册需要临时搭个梯子，注册好账号，又有谷歌访问助手，就不再需要梯子，随时可以用了。</p>
-<hr>
-
-</li>
-</ol>
-<p>闲话不多说了，我们这就开始吧。深度学习的往往从图像入门，我们也不例外。</p>
-<h2 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h2><p>首先，只需要下面两行代码（其实只要第二行的就可以了），即可完成fast.ai图像处理的模块以及很多相关的第三方库的引入。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> fastai <span class="keyword">import</span>*</span><br><span class="line"><span class="keyword">from</span> fastai.vision <span class="keyword">import</span> *</span><br></pre></td></tr></table></figure>
-
-<h3 id="Jupyter格式子的使用技巧"><a href="#Jupyter格式子的使用技巧" class="headerlink" title="Jupyter格式子的使用技巧"></a>Jupyter格式子的使用技巧</h3><p>一般我们都是在Jupyter Notebook中来调试深度学习的代码，如果看教程的你也是这样的话，有一些骚操作可以带来极大的便利。</p>
-<ol>
-<li><p>?functione-name: 在类名/函数名前加?，然后shift + enter，可以看到相关文档。</p>
- <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?ImageDataBunch</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>??functione-name: 在类名/函数名前加??，然后shift + enter，可以看到源代码。</p>
- <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">??ImageDataBunch</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>doc(function-name): 显示函数的定义、docstring和指向文档的链接。</p>
- <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">doc(ImageDataBunch)</span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-<h3 id="训练过程过视化"><a href="#训练过程过视化" class="headerlink" title="训练过程过视化"></a>训练过程过视化</h3><p>Tensorboard是tensorflow用来可视化训练过程的一个很好用的工具，遗憾的是之前PyTorch一系一直不能使用它。不过最新版本的fast.ai已经支持使用Tensorboard了，这里需要添加下面一行代码：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> fastai.callbacks.tensorboard <span class="keyword">import</span> LearnerTensorboardWriter</span><br></pre></td></tr></table></figure>
-
-<h3 id="Jupyter魔法操作符"><a href="#Jupyter魔法操作符" class="headerlink" title="Jupyter魔法操作符"></a>Jupyter魔法操作符</h3><p>魔法操作符是可以在单元格上运行的函数，并将调用它们的行其余部分作为参数。可以通过在命令前放置’%’符号来调用它们。我把最有用的几个列在下面:</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">%matplotlib inline</span><br></pre></td></tr></table></figure>
-
-<p>眼熟吧，如果你用Jupyter跑过numpy和pandas的数据分析，你肯定使用过它了。此命令确保所有matplotlib绘图将被绘制在笔记本的输出单元格中，并在保存时保存在笔记本中（下次打开同一个ipynb时也会看到）。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">%reload_ext autoreload</span><br><span class="line">%autoreload <span class="number">2</span></span><br></pre></td></tr></table></figure>
-
-<p>在执行新行之前重新加载所有模块。如果模块被编辑，则无需重新运行导入命令，模块将自动重新加载。</p>
-<p>记住你总是在敲代码前在第一格把这三兄弟都复制进去就可以了。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">%matplotlib inline</span><br><span class="line">%reload_ext autoreload</span><br><span class="line">%autoreload <span class="number">2</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="关于数据"><a href="#关于数据" class="headerlink" title="关于数据"></a>关于数据</h3><p><a href="http://www.robots.ox.ac.uk/~vgg/data/pets/" target="_blank" rel="noopener">Oxford-IIIT Pet Dataset</a>是一个宠物图片数据集，这个数据集由牛津大学出品，里面有12种猫和25种狗的图片。我们的模型需要学会区分这37个不同的类别。根据他们的论文，他们在2012年获得的最佳准确率为59.21%，使用的是一种专门用于宠物检测的复杂模型，宠物照片分别使用“图像”、“头部”和“身体”模型。让我们看看使用深度学习的效果吧。</p>
-<p>fastai内置了一个获取机器学习常用数据集的函数，untar_data，它会自动下载解压数据。通过开头第二行的import，我们已经可以直接使用它了。我们可以使用URLs.PETS这个名字来直接获得这个数据集。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">path = untar_data(URLs.PETS)</span><br><span class="line">path</span><br></pre></td></tr></table></figure>
-
-<p>这里要说明一下，Fast.ai是国外的框架，所以下载的数据都是从国外下载，由于众所周知的原因，下载速度十分感人，因此需要自己搭个梯子。</p>
-<p>别急，还有一个更方便的办法，就是使用前面提到的kaggle kernel。你可以点击下面这个链接（前提是你已经按我前面要求的注册好了kaggle账号，否则点进来了也没法使用）</p>
-<p><a href="https://www.kaggle.com/ginfromchina/fast-ai-v3-lesson-1/edit" target="_blank" rel="noopener">lesson 1 fast.ai v3: What’s your pet</a></p>
-<p>你可以对path直接使用如下语法：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 类似在linux命令行中执行: ls path</span></span><br><span class="line">path.ls()   </span><br><span class="line"><span class="comment"># 等效于: path_anno = os.path.join(path, 'annotations')</span></span><br><span class="line">path_anno = path/<span class="string">'annotations'</span></span><br><span class="line">path_img = path/<span class="string">'images'</span></span><br></pre></td></tr></table></figure>
-
-<p>做分析前我们深入了解一下数据，我们总是需要很好地理解问题是什么，数据是什么样子的，然后才能找出解决的办法。查看数据意味着理解数据目录的结构、标签是什么以及一些示例图像是什么样子。</p>
-<p>这里推荐使用linux的第三方工具tree，查看文件树形结构，使用前需要安装。在Jupyter Notebook里安装Linux工具可以使用如下办法：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line">os.system(<span class="string">"apt install tree"</span>)</span><br><span class="line">os.system(<span class="string">"tree"</span>)</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">fnames = get_image_files(path_img)</span><br><span class="line">fnames[:<span class="number">5</span>]</span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">显示如下：</span></span><br><span class="line"><span class="string">[PosixPath('/tmp/.fastai/data/oxford-iiit-pet/images/shiba_inu_11.jpg'),</span></span><br><span class="line"><span class="string"> PosixPath('/tmp/.fastai/data/oxford-iiit-pet/images/pug_74.jpg'),</span></span><br><span class="line"><span class="string"> PosixPath('/tmp/.fastai/data/oxford-iiit-pet/images/Maine_Coon_2.jpg'),</span></span><br><span class="line"><span class="string"> PosixPath('/tmp/.fastai/data/oxford-iiit-pet/images/Bombay_107.jpg'),</span></span><br><span class="line"><span class="string"> PosixPath('/tmp/.fastai/data/oxford-iiit-pet/images/leonberger_13.jpg')]</span></span><br><span class="line"><span class="string">'''</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 设置随机种子，不用担心前面没有import numpy和re，fast.ai已经代劳了</span></span><br><span class="line">np.random.seed(<span class="number">2</span>)</span><br><span class="line">pat = re.compile(<span class="string">r'/([^/]+)_\d+.jpg$'</span>)</span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">简单解释一下，这个正则表达式能从比如'/tmp/.fastai/data/oxford-iiit-pet/images/leonberger_13.jpg'字符串中取出leonberger这个名字，作为后面的分类的类名</span></span><br><span class="line"><span class="string">'''</span></span><br></pre></td></tr></table></figure>
-
-<p>GPU处理数据的速度十分快，同时从硬盘把数据送入到GPU的过程很慢，因此为了减少GPU无效的等待时间，PyTorch提供了dataloader。fast.ai则封装了dataloader，高度集成之后，只需要使用如下代码即可准备好数据了。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data = ImageDataBunch.from_name_re(path_img, fnames, pat, ds_tfms=get_transforms(), size=<span class="number">224</span>, bs=<span class="number">16</span>, num_workers=<span class="number">0</span>).normalize(imagenet_stats)</span><br></pre></td></tr></table></figure>
-
-<p>预览一下三行三列的图片</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data.show_batch(rows=<span class="number">3</span>, figsize=(<span class="number">7</span>,<span class="number">6</span>))</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">print(data.classes)</span><br><span class="line">len(data.classes),data.c</span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">输出：</span></span><br><span class="line"><span class="string">['Abyssinian', 'Bengal', 'Birman', 'Bombay', 'British_Shorthair', 'Egyptian_Mau', 'Maine_Coon', 'Persian', 'Ragdoll', 'Russian_Blue', 'Siamese', 'Sphynx', 'american_bulldog', 'american_pit_bull_terrier', 'basset_hound', 'beagle', 'boxer', 'chihuahua', 'english_cocker_spaniel', 'english_setter', 'german_shorthaired', 'great_pyrenees', 'havanese', 'japanese_chin', 'keeshond', 'leonberger', 'miniature_pinscher', 'newfoundland', 'pomeranian', 'pug', 'saint_bernard', 'samoyed', 'scottish_terrier', 'shiba_inu', 'staffordshire_bull_terrier', 'wheaten_terrier', 'yorkshire_terrier']</span></span><br><span class="line"><span class="string">(37， 37)</span></span><br><span class="line"><span class="string">'''</span></span><br></pre></td></tr></table></figure>
-
-<p>好了，我们可以开始训练了。限于篇幅，我把接下来的部分放在下篇。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-  </section>
-
-  
 
 
           </div>
@@ -1563,6 +535,10 @@ PyTorch的TensorDataset是一个包装张量的数据集。通过定义长度和
 
 
           
+
+  
+
+
 
         </div>
         
@@ -1583,8 +559,17 @@ PyTorch的TensorDataset是一个包装张量的数据集。通过定义长度和
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -1628,6 +613,22 @@ PyTorch的TensorDataset是一个包装张量的数据集。通过定义长度和
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#神经网络初探"><span class="nav-number">1.</span> <span class="nav-text">神经网络初探</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#MNIST数据集设置"><span class="nav-number">1.1.</span> <span class="nav-text">MNIST数据集设置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用optim重构"><span class="nav-number">1.2.</span> <span class="nav-text">使用optim重构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用DataLoader来重构"><span class="nav-number">1.3.</span> <span class="nav-text">使用DataLoader来重构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#重构一下拟合和获取数据的代码"><span class="nav-number">1.4.</span> <span class="nav-text">重构一下拟合和获取数据的代码</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#切换到CNN"><span class="nav-number">2.</span> <span class="nav-text">切换到CNN</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#第一次尝试"><span class="nav-number">2.1.</span> <span class="nav-text">第一次尝试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#nn-Sequential"><span class="nav-number">2.2.</span> <span class="nav-text">nn.Sequential</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#包装DataLoader"><span class="nav-number">2.3.</span> <span class="nav-text">包装DataLoader</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用GPU"><span class="nav-number">2.4.</span> <span class="nav-text">使用GPU</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -1768,6 +769,10 @@ PyTorch的TensorDataset是一个包装张量的数据集。通过定义长度和
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
